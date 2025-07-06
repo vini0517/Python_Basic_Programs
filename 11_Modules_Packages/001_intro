@@ -1,0 +1,36 @@
+What Are Python Modules and Packages?
+A module in Python is a file that contains definitions of functions, classes, and variables. We can use modules to break up large programs into smaller, more manageable pieces. Modules also make it easy to reuse code across multiple projects.
+
+A package is a collection of modules. Packages allow us to group related modules together and access them using a simple dot notation.
+
+There are several categories of Python modules and packages:
+
+Built-in modules: These are modules that are included with the Python interpreter and are available to all Python programs. Examples of built-in modules include math, os, sys, and random.
+Standard library modules: These are modules that are part of the Python standard library, but are not built into the interpreter. They can be imported and used in the same way as built-in modules. Examples of standard library modules include json, urllib, re, and csv.
+Third-party modules: These are modules that are developed and maintained by individuals or organizations outside of the Python core development team. They can be imported and used in the same way as built-in and standard library modules, but they need to be installed separately. There are many third-party modules available, covering a wide range of topics and purposes. Some examples include numpy, pandas, requests, and beautifulsoup4.
+Local modules: These are modules that are located in the same directory as the Python program that is using them. We can import local modules using the import statement and the module name, without specifying the full path.
+Relative imports: These are imports that are relative to the current package or module. They allow us to import modules and packages that are located in a different directory than the current one. We can use relative imports to import modules and packages that are part of the same project, but are organized in a different directory structure.
+In summary, Python modules and packages can be classified based on where they come from and how they are accessed. Built-in and standard library modules are included with the Python interpreter and are available to all Python programs, while third-party modules need to be installed separately. Local modules and relative imports allow us to import modules and packages that are located in the same project, but in a different directory structure.
+
+import math
+
+## Calculate the square root of 16
+x = math.sqrt(16)
+print(x)  ## Output: 4.0
+
+## Calculate the sine of pi
+y = math.sin(math.pi)
+print(y)  ## Output: 1.2246467991473532e-16
+
+## Calculate the factorial of 5
+z = math.factorial(5)
+print(z)  ## Output: 120
+
+The math module is a built-in Python module that provides mathematical functions and constants. Some of the functions available in the math module include sqrt(), sin(), cos(), tan(), log(), exp(), and factorial(). The math module also provides constants such as pi and e.
+
+my_package/
+├── __init__.py
+└── my_module.py
+
+External Modules:
+https://www.geeksforgeeks.org/python/external-modules-in-python/
