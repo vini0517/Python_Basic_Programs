@@ -1,0 +1,71 @@
+🔄 **Iterator in Python**
+
+An **iterator** is an object that enables a programmer to traverse through all the elements of a collection (like lists, tuples, sets, etc.).
+
+* Implemented using a **class**.
+* Uses **lazy evaluation**: computes values one at a time as needed, reducing memory use.
+* You don’t need a local loop variable.
+* Once an iterator is exhausted, it must be **reassigned** to iterate again.
+
+An iterator is an object that allows traversal through a sequence of elements one at a time.
+It implements the iterator protocol, which requires two methods:
+__iter__(): Returns the iterator object itself.
+__next__(): Returns the next item from the sequence. If no more items are available, it raises a StopIteration exception.
+Built-in functions like iter() can convert an iterable (like a list or tuple) into an iterator.
+Iterators are "lazy" in that they produce values only when requested, making them suitable for large datasets where loading all data into memory at once is impractical.
+
+▶ Example: Using `iter()` and `next()`
+
+```python
+iter_list = iter(['Geeks', 'For', 'Geeks'])
+
+print(next(iter_list))  # Output: Geeks
+print(next(iter_list))  # Output: For
+print(next(iter_list))  # Output: Geeks
+```
+
+⚙️ **Generator in Python**
+
+A **generator** simplifies the creation of iterators using a function and the `yield` keyword.
+
+* Implemented using a **function**.
+* `yield` returns values without exiting the function.
+* Also uses **lazy evaluation**, ideal for working with large data.
+* Generators don’t store all values in memory, they generate items on-the-fly.
+
+Generators are a simpler and more concise way to create iterators in Python.
+They are defined using functions that contain the yield keyword instead of return.
+When a generator function is called, it returns a generator object (which is a type of iterator) without executing the function body immediately.
+The yield statement pauses the function's execution and "yields" a value to the caller. When next() is called on the generator, the function resumes from where it left off, maintaining its internal state.
+Generator expressions provide a compact syntax for creating simple generators, similar to list comprehensions but using parentheses instead of square brackets.
+
+
+▶ Example: Generator Function with `yield`
+
+```python
+def sq_numbers(n):
+    for i in range(1, n+1):
+        yield i * i
+
+a = sq_numbers(3)
+
+print("The square of numbers 1, 2, 3 are:")
+print(next(a))  # Output: 1
+print(next(a))  # Output: 4
+print(next(a))  # Output: 9
+```
+
+---
+
+🔁 **Iterator vs Generator: Key Differences**
+
+| Feature         | **Iterator**                                                 | **Generator**                                                  |
+| --------------- | ------------------------------------------------------------ | -------------------------------------------------------------- |
+| Implementation  | Implemented using a **class**                                | Implemented using a **function**                               |
+| Memory Usage    | Doesn't store all values; uses lazy evaluation               | Also uses lazy evaluation; memory-efficient                    |
+| Syntax          | Uses `iter()` and `next()`                                   | Uses `yield` keyword                                           |
+| Local Variables | No local variables maintained                                | Local variables are **retained** between yields                |
+| Use Case        | Used to **convert iterable** or make custom objects iterable | Used for **on-the-fly value generation** in loops or pipelines |
+| Reusability     | Once exhausted, needs to be recreated                        | Same — needs to be recreated after exhaustion                  |
+| Nature          | Every iterator is **not** a generator                        | Every generator **is** an iterator                             |
+
